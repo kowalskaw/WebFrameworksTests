@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "title": "Harry Potter and the Philosopher's Stone",
         "author": "Rowling J.K.",
         "number_of_pages": 331,
@@ -10,7 +10,7 @@
         "avaliability": true
     },
     {
-        "id": 2,
+        "id": "2",
         "title": "Harry Potter 2 and the Chamber of Secrets",
         "author": "Rowling J.K.",
         "number_of_pages": 359,

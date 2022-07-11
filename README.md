@@ -40,9 +40,20 @@ In order to run a uvicorn server, there has to be python module and filename spe
 ```
     $ uvicorn module_name.app:app --reload
 ```
-## Run flask 
+## Run Flask 
 To run Flask server enter below command in terminal.
 ```
     $ cd ./servers/flask 
     $ flask run
+```
+## Run FastAPI server
+To run Flask server enter below command in terminal.
+```
+    $ cd ./servers/fast_api 
+    $ uvicorn main:app --reload
+
+```
+## Run locust
+```
+locust --host http://localhost:3000 --users number_of_users --spawnrate spawn_rate_number
 ```

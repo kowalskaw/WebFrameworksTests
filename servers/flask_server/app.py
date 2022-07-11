@@ -31,7 +31,7 @@ def add_book():
     global books
     body = request.get_json()
     if body:
-        body['id'] = uuid.uuid4()
+        body['id'] = str(uuid.uuid4())
         books += [body]
         return build_response({'id': body['id']}, 201)
     else:
@@ -43,7 +43,7 @@ def update_book(book_id):
     global books
     body = request.get_json()
     for i, book in enumerate(books):
-        if str(book['id']) == book_id:
+        if book['id'] == book_id:
             books[i] = body
             books[i]['id'] = book_id
             return build_response(books[i], 200)
@@ -51,14 +51,14 @@ def update_book(book_id):
 
 
 @app.route('/books', methods=['GET'])
-def get_books():
+def read_books():
     return build_response(books, 200)
 
 
 @app.route('/books/<book_id>', methods=['GET'])
-def get_book(book_id):
+def read_book(book_id):
     for book in books:
-        if str(book['id']) == book_id:
+        if book['id'] == book_id:
             return build_response(book, 200)
     return build_response()
 
@@ -67,7 +67,7 @@ def get_book(book_id):
 def delte_book(book_id):
     global books
     for i, book in enumerate(books):
-        if str(book['id']) == book_id:
+        if book['id'] == book_id:
             del books[i]
             return build_response({'message': 'deleted'}, 200)
         else:

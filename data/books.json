@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Harry Potter and the Philosopher's Stone",
+        "author": "Rowling J.K.",
+        "number_of_pages": 331,
+        "publishment_year": "2015",
+        "publishment_language": "english",
+        "publisher": "Bloomsbury Publishing",
+        "avaliability": true
+    },
+    {
+        "id": 2,
+        "title": "Harry Potter 2 and the Chamber of Secrets",
+        "author": "Rowling J.K.",
+        "number_of_pages": 359,
+        "publishment_year": "2014",
+        "publishment_language": "english",
+        "publisher": "Bloomsbury Publishing",
+        "avaliability": false
+    }
+]

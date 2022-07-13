@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, make_response
+from flask import Flask, render_template, request, jsonify, make_response, Response
 import json
 import uuid
 
@@ -9,7 +9,7 @@ books = json.load(open('./../../data/books.json'))
 
 
 def build_response(data={}, status_code=204):
-    response = make_response(
+    return make_response(
         jsonify(
             {
                 'data': data,
@@ -17,8 +17,6 @@ def build_response(data={}, status_code=204):
             }
         ), status_code
     )
-    response.headers['Content-Type'] = 'applicatoin/json'
-    return response
 
 
 @app.route("/")
@@ -29,13 +27,11 @@ def hello_world():
 @app.route('/books', methods=['POST'])
 def add_book():
     global books
-    body = request.get_json()
-    if body:
-        body['id'] = str(uuid.uuid4())
-        books += [body]
-        return build_response({'id': body['id']}, 201)
-    else:
-        return build_response()
+    book_dict = request.get_json()
+    book_dict['id'] = str(uuid.uuid4())
+    books += [book_dict]
+    print(book_dict)
+    return build_response(book_dict, 201)
 
 
 @app.route('/books/<book_id>', methods=['PUT'])
@@ -47,7 +43,7 @@ def update_book(book_id):
             books[i] = body
             books[i]['id'] = book_id
             return build_response(books[i], 200)
-    return build_response()
+    return Response(status=204)
 
 
 @app.route('/books', methods=['GET'])
@@ -60,7 +56,7 @@ def read_book(book_id):
     for book in books:
         if book['id'] == book_id:
             return build_response(book, 200)
-    return build_response()
+    return Response(status=204)
 
 
 @app.route('/books/<book_id>', methods=['DELETE'])
@@ -69,6 +65,5 @@ def delte_book(book_id):
     for i, book in enumerate(books):
         if book['id'] == book_id:
             del books[i]
-            return build_response({'message': 'deleted'}, 200)
-        else:
-            return build_response()
+            return Response(status=200)
+    return Response(status=201)

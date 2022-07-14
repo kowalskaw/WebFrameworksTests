@@ -38,7 +38,7 @@ After installation of proper dependencies, activate the virtual environment.
 ## Run uvicorn server
 In order to run a uvicorn server, there has to be python module and filename specified. File should contain initialized app object.
 ```
-    $ uvicorn module_name.app:app --reload
+    $ uvicorn module_name.app:app
 ```
 ## Run Flask 
 To run Flask server enter below command in terminal.
@@ -50,7 +50,14 @@ To run Flask server enter below command in terminal.
 To run Flask server enter below command in terminal.
 ```
     $ cd ./servers/fast_api 
-    $ uvicorn main:app --reload
+    $ uvicorn main:app
+
+```
+## Run Falcon server
+To run Falon server enter below command in terminal.
+```
+    $ cd servers
+    $ gunicorn falcon_server:app --reload
 
 ```
 ## Run locust

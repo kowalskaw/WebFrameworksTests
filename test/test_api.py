@@ -13,7 +13,7 @@ logger.addHandler(stream_handler)
 
 class TestApi(unittest.TestCase):
     def setUp(self):
-        self.uri_rest = "http://127.0.0.1:8000/books"
+        self.uri_rest = "http://127.0.0.1:8080/books"
         self.base_body = {
             "title": "Harry Potter and the Prisoner of Azkaban",
             "author": "Rowling J.K."

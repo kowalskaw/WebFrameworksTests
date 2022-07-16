@@ -60,6 +60,13 @@ To run Falon server enter below command in terminal.
     $ gunicorn falcon_server:app --reload
 
 ```
+## Run Tornado server
+To run Tornado server enter below command in terminal.
+```
+    $ cd ./servers/tornado_server
+    $ python3 app.py
+
+```
 ## Run locust
 ```
 locust --host http://localhost:3000 --users number_of_users --spawnrate spawn_rate_number

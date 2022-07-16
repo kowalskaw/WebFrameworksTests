@@ -86,5 +86,6 @@ class TestApi(unittest.TestCase):
         book_id = post_data['id']
         delete_response = requests.delete(self.uri_rest+'/{}'.format(book_id))
         self.assertEqual(delete_response.status_code, 200)
-        get_response = requests.get(self.uri_rest+'/{}'.format(book_id))
-        self.assertEqual(get_response.status_code, 204)
+        delete_not_existing_response = requests.delete(
+            self.uri_rest+'/{}'.format(book_id))
+        self.assertEqual(delete_not_existing_response.status_code, 204)

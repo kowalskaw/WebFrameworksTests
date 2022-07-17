@@ -66,4 +66,4 @@ def delte_book(book_id):
         if book['id'] == book_id:
             del books[i]
             return Response(status=200)
-    return Response(status=201)
+    return Response(status=204)

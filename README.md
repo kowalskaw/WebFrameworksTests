@@ -67,6 +67,13 @@ To run Tornado server enter below command in terminal.
     $ python3 app.py
 
 ```
+## Run CherryPy server
+To run CherryPy server enter below command in terminal.
+```
+    $ cd ./servers/cherry_py
+    $ python3 app.py
+
+```
 ## Run locust
 ```
 locust --host http://localhost:3000 --users number_of_users --spawnrate spawn_rate_number
